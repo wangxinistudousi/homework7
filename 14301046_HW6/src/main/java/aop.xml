@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+<bean id="fooTarget" class="porxy.FooImpl"/>
+    <bean id="myAdvice" class="porxy.PrintBeforeAdvice"/>
+    <bean id="foo" class="porxy.ProxyFactoryBean">
+     <property name="proxyInterfaces">
+       <value>FooInterface</value>
+     </property>
+     <property name="target">
+       <ref local="fooTarget"/>
+     </property>
+     <property name="interceptorNames">
+       <list>
+         <value>myAdvice</value>
+       </list>
+     </property>
+    </bean>
+  </beans>
